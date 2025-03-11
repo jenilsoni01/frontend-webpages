@@ -1,0 +1,83 @@
+<html>
+
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Capriola&display=swap" rel="stylesheet" />
+  '
+  <title>Food Villa</title>
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+      font-family: "Capriola", sans-serif;
+      color: burlywood;
+      /* font-size: larger; */
+    }
+
+    #back {
+      background-image: url("form3background.jpg");
+      background-size: cover;
+    }
+
+    #form {
+      margin-top: 150px;
+      margin-left: 1000px;
+    }
+
+    .text {
+      margin-right: 20px;
+      color: burlywood;
+    }
+
+    .field {
+      color: bisque;
+      background-color: beige;
+      border-radius: 5px;
+    }
+
+    .submit {
+      color: honeydew;
+      background-color: goldenrod;
+      border: 3px honeydew solid;
+      border-radius: 10%;
+      font-size: x-large;
+      margin-left: 150px;
+
+    }
+
+    .submit:hover {
+      color: goldenrod;
+      background-color: honeydew;
+      border: 3px goldenrod solid;
+    }
+  </style>
+</head>
+
+<body id="back">
+  <div id="form">
+    <form>
+      <h1>
+        <legend style="padding: 5px;padding-left: 30px;margin-bottom: 30px;color:darkgoldenrod;">Reserve Your Table
+        </legend>
+      </h1>
+      <label class="text" style="margin-right: 130px;">Name:</label>
+      <input type="text" placeholder="        your full name" class="field" /><br /><br />
+      <label class="text" style="margin-right: 120px;">E-mail:</label>
+      <input type="email" placeholder="        your  e-mail " class="field" /><br /><br />
+      <label class="text" style="margin-right: 55px;">Phone Number:</label>
+      <input type="text" placeholder="" class="field" /><br /><br />
+      <label class="text" style="margin-right: 30px;">Number of Guests:</label>
+      <input type="text" placeholder="" class="field" /><br /><br />
+      <label class="text" style="margin-right: 33px;">Reservation-Date:</label>
+      <input type="text" placeholder="       DD/MM/YYYY" class="field" /><br /><br />
+      <label class="text" style="margin-right: 140px;">time:</label>
+      <input type="text" placeholder="             HH-MM" class="field" /><br /><br />
+      <input type="radio" value="AM" name="gender">AM
+      <input type="radio" value="PM" name="gender">PM<br><br>
+      <input type="submit" value="Reserve" class="submit">
+    </form>
+  </div>
+</body>
+
+</html>

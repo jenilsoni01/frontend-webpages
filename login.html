@@ -1,0 +1,122 @@
+<html>
+
+<head>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Capriola&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <title>
+        Food Villa
+    </title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            font-family: "Capriola", sans-serif;
+
+        }
+
+        #back {
+            background-image: url('formbackground.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }
+
+        div {
+            height: 370px;
+            width: 430px;
+            margin-top: 170px;
+            margin-left: 35%;
+            /* background-color:#FBEAE7; */
+            border-radius: 10%;
+
+        }
+
+        .text {
+            color: #f0caab;
+            margin-left: 30%;
+            font-size: 20px;
+        }
+
+        input {
+            margin-left: 30%;
+            border-radius: 5px;
+            background-color: #fdf5df;
+            initial-value: white;
+            color: #5ebec4;
+            border: 3px #B2456E solid;
+
+        }
+
+        .sub {
+            font-size: 25px;
+            background-color: #e97451;
+            color: #483c32;
+            border: 3px #483c32 solid;
+        }
+
+        .sub:hover {
+            color: #e97451;
+            background-color: #483c32;
+            border: 3px #e97451 solid;
+        }
+    </style>
+</head>
+
+<body id="back">
+    <div>
+        <form name="form1" onsubmit="return check()" class="form">
+            <legend style="margin-left: 40% ;font-size:xx-large; font-style: bold; color: #b87333;">Login</legend>
+            <br>
+            <section>
+                <label class="text">phone number :</label><br>
+                <input type="text" size="30px" name="phonenum" placeholder="Enter Your Phone number"
+                    id="phonenum"><br><br>
+            </section>
+            <label class="text">E-mail :</label><br>
+            <input type="text" size="30px" name="email" placeholder="Enter Your E-mail address" id="email"><br><br>
+            <label class="text">OTP:</label><br>
+            <input type="text" name="otp" placeholder="Enter OTP" id="otp"><br><br>
+            <input class="sub" type="submit" name="login" value="Login"><br>
+            </section>
+            <br>
+
+            <b class="text">Don't have Account?</b><br>
+            <input class="sub" type="button" name="signup" value="signup"
+                onclick="window.location.href='register.html'">
+        </form>
+    </div>
+    <script>
+        function check() {
+            var number = document.getElementById("phonenum").value;
+            var email = document.getElementById("email").value;
+            var otp = document.getElementById("otp").value;
+
+            if (number.length != 10 || isNaN(number)) {
+                alert("please re-check the mobile number");
+                return false;
+            }
+            let count = 0;
+            for (let i = 1; i < email.length - 1; i++) {
+                if (email[i] == '@') {
+                    count = count + 1;
+                }
+            }
+            if (count != 1) {
+                alert("please enter valid email")
+                return false;
+            }
+
+            if (otp.length != 6 || otp < 1 || otp > 999999) {
+                alert("please enter correct otp");
+                return false;
+
+            }
+            return true;
+        }
+    </script>
+</body>
+
+</html>

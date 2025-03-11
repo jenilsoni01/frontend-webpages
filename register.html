@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Capriola&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <title>Food Villa</title>
+    <link rel="stylesheet" href="p5.css">
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            font-family: "Capriola", sans-serif;
+
+        }
+
+        #back {
+            background-image: url('form2background.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }
+
+        .form {
+            margin-top: 3%;
+            margin-left: 8%;
+            background-color: #ffecd1;
+            color: #141413;
+            height: 650px;
+            border-radius: 10px;
+            width: 500px;
+            border: #483c32 solid 7px;
+        }
+
+        .text {
+            margin-left: 25%;
+            font-size: 25px;
+        }
+
+        input[type=text] {
+            margin-left: 25%;
+            color: #333333;
+            border-radius: 5px;
+            border: 3px #333333 solid;
+            background-color: #f5f5f5;
+        }
+
+        input[type=checkbox] {
+
+            margin-left: 25%;
+            font-size: 15px;
+
+        }
+
+        input[type=submit],button {
+            margin-bottom: 8px;
+            font-size: 20px;
+            border-radius: 10px;
+            margin-left: 24%;
+            color: #fffdd0;
+            background-color: #ff7f11;
+        }
+
+        input[type=submit]:hover,button:hover {
+            background-color: #fffdd0;
+            color: #ff7f11;
+            border: #262626 solid 2px;
+        }
+    </style>
+</head>
+
+<body id="back">
+    <div class="form">
+        <form action="p5 form 3.html" onsubmit="return validateform()">
+            <legend style="margin-left:40%;font-size:30px;font-style:bold;margin-top: 7px;">Register</legend><br>
+            <label class="text">Name:</label><br>
+            <input type="text" name="name" id="name" placeholder="Enter your full name"><br><br>
+            <label class="text">Gender:</label><br>
+            <div style="margin-left: 25%; font-size: 18px;">
+                Male<input type="radio" name="gender" id="gender" value="male">
+                Female<input type="radio" name="gender" value="female">
+                Other<input type="radio" name="gender" value="Other"><br><br>
+            </div>
+            <label class="text">Age:</label><br>
+            <input type="text" name="age" id="age" placeholder="Enter your age"><br><br>
+            <label class="text">Mobile number:</label><br>
+            <input type="text" name="number" id="number" placeholder="Enter your name"><br><br>
+            <label class="text">E-mail:</label><br>
+            <input type="text" name="email" id="email" placeholder="Enter E-mail"><br><br>
+            <label class="text">Password:</label><br>
+            <input
+                style="margin-left: 25%;color:#333333 ;border-radius: 5px;border: 3px #333333 solid;background-color: #f5f5f5;"
+                type="password" name="password" id="password" placeholder="Enter the password"><br><br>
+            <input type="checkbox" id="robot"><b>* I'm not a robot.</b><br><br>
+            <input type="checkbox" id="agree"><b>* I read and agree with terms & conditions.</b><br><br>
+            <input type="submit" name="submit" value="Create an account">
+        </form>
+        <a href="login.html"><button>Sign in</button></a>
+    </div>
+    <script>
+        function validateform() {
+            name = document.getElementById("name").value
+            gender = document.querySelector('input[name="gender"]:checked')
+            age = document.getElementById("age").value
+            number = document.getElementById("number").value
+            email = document.getElementById("email").value
+            password = document.getElementById("password").value
+            robot = document.getElementById("robot").checked;
+            agree = document.getElementById("agree").checked;
+
+            if (name === "" || !isNaN(name)) {
+                alert("enter proper name");
+                return false;
+            }
+            if (!gender) {
+                alert("select the gender")
+                return false;
+            }
+            if (isNaN(age) || age < 18) {
+                alert("you are not eligible")
+                return false;
+
+            }
+            if (number.length != 10 || isNaN(number)) {
+                alert("please re-check the mobile number");
+                return false;
+            }
+            let count = 0;
+            for (let i = 1; i < email.length - 1; i++) {
+                if (email[i] == '@') {
+                    count = count + 1;
+                }
+            }
+            if (count != 1) {
+                alert("please enter valid email")
+                return false;
+            }
+            let count1 = 0;
+            let count2 = 0;
+            let count3 = 0;
+            let count4 = 0;
+            for (let i = 0; i < password.length; i++) {
+                if (password[i] >= 'A' && password[i] <= 'Z') {
+                    count1 = count1 + 1;
+                }
+                if (password[i] >= 'a' && password[i] <= 'z') {
+                    count2 = count2 + 1;
+                }
+                if (password[i] >= 0 && password[i] <= 9) {
+                    count3 = count3 + 1;
+                }
+                if (password[i] == '!' || password[i] == '@' || password[i] == '#' || password[i] == '$' || password[i] == '%' || password[i] == '^' || password[i] == '&' || password[i] == '*' || password[i] == '(' || password[i] == ')' || password[i] == '-' || password[i] == '_' || password[i] == '=' || password[i] == '+' || password[i] == ']' || password[i] == '[' || password[i] == '{' || password[i] == '}' || password[i] == '<' || password[i] == '>' || password[i] == '|' || password[i] == '/') {
+                    count4 = count4 + 1;
+                }
+            }
+            if (password.length < 8) {
+                alert("password must be contain atleast 8 characters")
+                return false;
+            }
+
+            if (count1 == 0) {
+                alert("atleast 1 uppercase character required")
+                return false;
+            }
+            if (count2 == 0) {
+                alert("atleast 1 lowercase character required")
+                return false;
+            }
+            if (count3 == 0) {
+                alert("atleast 1 numeric character required")
+                return false;
+            }
+            if (count4 == 0) {
+                alert("atleast 1 special character required")
+                return false;
+            }
+            if (!robot) {
+                alert("please confirm that you are not a robot")
+                return false;
+            }
+            if (!agree) {
+                alert("please agree all terms and conditions")
+                return false;
+            }
+
+            return true;
+
+        }
+
+
+    </script>
+</body>
+
+</html>
